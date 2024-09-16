@@ -1,0 +1,12 @@
+# Hassas bilgileri içeren dosyaları Git deposundan dışla
+terraform/*.tfvars
+
+# Terraform state dosyalarını dışla
+*.tfstate
+*.tfstate.*
+
+# Python bytecode dosyalarını dışla
+*.pyc
+
+# Geçici dosyaları dışla
+*~

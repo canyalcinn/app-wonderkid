@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo "Building Lambda function..."
+      - zip -r lambda_code.zip backend/  
+  post_build:
+    commands:
+      - echo Uploading Lambda code to S3...
+      - aws s3 cp lambda_code.zip s3://futbol-wonderkid-lambda-code/lambda_code.zip
+      - echo Running Terraform apply...
+      - cd terraform
+      - terraform init
+      - terraform apply -auto-approve

@@ -1,0 +1,21 @@
+resources:
+  pipelines:
+    - name: WonderkidScoutingPipeline
+      source:
+        - provider: GitHub
+          repository: github-username/futbol-wonderkid-scouting-app
+      stages:
+        - name: Build
+          actions:
+            - provider: CodeBuild
+              input_artifacts: SourceOutput
+              output_artifacts: BuildOutput
+              configuration:
+                ProjectName: WonderkidBuild
+        - name: Deploy
+          actions:
+            - provider: CloudFormation
+              input_artifacts: BuildOutput
+              configuration:
+                StackName: WonderkidScoutingAppStack
+                ActionMode: CREATE_UPDATE
