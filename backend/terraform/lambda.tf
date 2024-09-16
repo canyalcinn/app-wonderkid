@@ -82,7 +82,7 @@ resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
 
 
 resource "aws_lambda_function" "analyzepotential" {
-  function_name = "analyze_potential"
+  function_name = "analyzepotential"
   role          = aws_iam_role.lambda_role.arn
   handler       = "analyze_potential.lambda_handler" # analyze_potential.py'deki handler fonksiyonu
   runtime       = "python3.9"
