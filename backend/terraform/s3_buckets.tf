@@ -26,7 +26,7 @@ resource "aws_lambda_permission" "allow_s3_invoke" {
 resource "aws_s3_bucket_object" "lambda_code" {
   bucket = "futbol-wonderkid-csv-buckete"
   key    = "backend.zip"            # Lambda kodu için zip dosyasının adı
-  source = "../backend/backend.zip" # Lambda kodunun bulunduğu yerel zip dosyası
+  source = "backend.zip" # Lambda kodunun bulunduğu yerel zip dosyası
   acl    = "private"
 }
 
