@@ -1,5 +1,5 @@
 resource "aws_api_gateway_rest_api" "wonderkid_api" {
-  name = "WonderkidPotentialAPI"
+  name = "MyWonderkidPotentialAPI"
 }
 
 resource "aws_api_gateway_resource" "lambda_resource" {
