@@ -5,7 +5,7 @@ import csv
 # AWS SDK (boto3) ile S3 ve DynamoDB'ye erişim
 s3_client = boto3.client('s3')
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('WonderkidPotansiyel')  # DynamoDB tablo adını doğru şekilde gir
+table = dynamodb.Table('WonderkidPotansiyeldb')  # DynamoDB tablo adını doğru şekilde gir
 
 def lambda_handler(event, context):
     # S3'ten CSV dosyasını alma
