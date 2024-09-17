@@ -1,8 +1,8 @@
 resource "aws_lambda_function" "analyze_potential" {
-  function_name = "analyze_potential"
+  function_name = "my_analyze_potential"
   s3_bucket     = aws_s3_bucket.lambda_code_bucket.id
   s3_key        = "lambda_code.zip"
-  handler       = "analyze_potential.lambda_handler"
+  handler       = "my_analyze_potential.lambda_handler"
   runtime       = "python3.9"
   role          = aws_iam_role.lambda_exec_role.arn
   timeout       = 60
@@ -42,7 +42,7 @@ resource "aws_iam_role_policy_attachment" "lambda_s3_access" {
 }
 
 resource "aws_iam_role" "lambda_role" {
-  name = "wonderkid-lambda-role"
+  name = "my-wonderkid-lambda-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -57,7 +57,7 @@ resource "aws_iam_role" "lambda_role" {
 }
 
 resource "aws_iam_policy" "lambda_policy" {
-  name = "wonderkid-lambda-policy"
+  name = "my-wonderkid-lambda-policy"
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -78,24 +78,4 @@ resource "aws_iam_policy" "lambda_policy" {
 resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.lambda_policy.arn
-}
-
-
-resource "aws_lambda_function" "analyzepotential" {
-  function_name = "analyzepotential"
-  role          = aws_iam_role.lambda_role.arn
-  handler       = "analyze_potential.lambda_handler" # analyze_potential.py'deki handler fonksiyonu
-  runtime       = "python3.9"
-
-  # S3'ten zip dosyasını al
-  s3_bucket = "wonderkid-lambda-code"
-  s3_key    = "lambda_code.zip"
-
-  # Lambda environment variables (opsiyonel)
-  environment {
-    variables = {
-      BUCKET_NAME = "your-backend-s3-bucket-name"
-    }
-  }
-
 }
