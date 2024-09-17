@@ -23,7 +23,7 @@ function App() {
 
     try {
       // API'ye dosya yükleme isteği
-      const response = await fetch('https://25hl34g731.execute-api.us-east-1.amazonaws.com/test', {
+      const response = await fetch('https://25hl34g731.execute-api.us-east-1.amazonaws.com/test/analyze', {
         method: 'POST',
         body: formData,
       });
@@ -41,7 +41,7 @@ function App() {
   // Lambda fonksiyonundan sonucu alma
   const handleResult = async () => {
     try {
-      const response = await fetch('https://25hl34g731.execute-api.us-east-1.amazonaws.com/test');
+      const response = await fetch('https://25hl34g731.execute-api.us-east-1.amazonaws.com/test/analyze');
       const data = await response.json();
       setResult(data);
     } catch (error) {
