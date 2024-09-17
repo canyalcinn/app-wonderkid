@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "wonderkid_potential" {
-  name           = "WonderkidPotansiyel"
+  name           = "WonderkidPotansiyeldb"
   hash_key       = "PlayerID"
   billing_mode   = "PAY_PER_REQUEST"
 
@@ -9,6 +9,6 @@ resource "aws_dynamodb_table" "wonderkid_potential" {
   }
 
   tags = {
-    Name = "WonderkidPotansiyel"
+    Name = "WonderkidPotansiyeldb"
   }
 }
