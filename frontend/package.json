@@ -1,6 +1,5 @@
 {
   "name": "football-wonderkid-frontend",
-  "version": "10.8.3",
   "private": false,
   "dependencies": {
     "react": "^18.0.0",
