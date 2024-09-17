@@ -11,7 +11,7 @@ phases:
   post_build:
     commands:
       - echo Uploading Lambda code to S3...
-      - aws s3 cp lambda_code.zip s3://futbol-wonderkid-lambda-code/lambda_code.zip
+      - aws s3 cp lambda_code.zip s3://football-wonderkid-lambda-code/lambda_code.zip
       - echo Running Terraform apply...
       - cd terraform
       - terraform init
