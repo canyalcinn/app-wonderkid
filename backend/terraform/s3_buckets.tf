@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "wonderkid_csv_bucket" {
-  bucket = "futbol-wonderkid-csv-bucket"
+  bucket = "football-wonderkid-csv-bucket"
   acl    = "private"
 }
 
@@ -24,12 +24,12 @@ resource "aws_lambda_permission" "allow_s3_invoke" {
 }
 
 resource "aws_s3_bucket_object" "lambda_code" {
-  bucket = "futbol-wonderkid-csv-bucket"
+  bucket = "football-wonderkid-csv-bucket"
   key    = "backend.zip"            # Lambda kodu için zip dosyasının adı
   source = "backend.zip" # Lambda kodunun bulunduğu yerel zip dosyası
   acl    = "private"
 }
 
 resource "aws_s3_bucket" "lambda_code_bucket" {
-  bucket = "wonderkid-lambda-code" 
+  bucket = "my-wonderkid-lambda-code" 
 }
